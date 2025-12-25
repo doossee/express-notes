@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { ApiError } from "../utils/ApiError";
 
-export const validateCreateNode = (
+export const validateCreateNote = (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -42,7 +42,7 @@ export const validateCreateNode = (
   next();
 };
 
-export const validateUpdateNode = (
+export const validateUpdateNote = (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -89,29 +89,29 @@ export const validateUpdateNode = (
   next();
 };
 
-export const validateNodeId = (req: Request, res: Response, next: NextFunction) => {
+export const validateNoteId = (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
   
   const uuidRegex =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
   if (!id) {
-    return next(new ApiError(400, "Node ID is required"));
+    return next(new ApiError(400, "Note ID is required"));
   }
   if (typeof id !== "string") {
-    return next(new ApiError(400, "Node ID must be a string"));
+    return next(new ApiError(400, "Note ID must be a string"));
   }
   if (id.trim() === "") {
-    return next(new ApiError(400, "Node ID cannot be empty"));
+    return next(new ApiError(400, "Note ID cannot be empty"));
   }
   if (!uuidRegex.test(id)) {
-    return next(new ApiError(400, "Node ID must be a valid UUID"));
+    return next(new ApiError(400, "Note ID must be a valid UUID"));
   }
 
   next();
 };
 
-export const validateListNodesQuery = (req: Request, res: Response, next: NextFunction) => {
+export const validateListNotesQuery = (req: Request, res: Response, next: NextFunction) => {
   const { page, limit, search } = req.query;
   
   if (page !== undefined) {
