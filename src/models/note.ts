@@ -30,12 +30,13 @@ class NoteModel {
 
     if (search) {
       const searchLower = search.toLowerCase();
-      notesArray.filter(
+      notesArray = notesArray.filter(
         (note) =>
           note.title.toLowerCase().includes(searchLower) ||
           note.content.toLowerCase().includes(searchLower),
       );
     }
+
     const total = notesArray.length;
 
     const startIndex = (page - 1) * limit;
@@ -44,31 +45,31 @@ class NoteModel {
 
     return { notes: paginatedNotes, total };
   }
-  
+
   update(id: string, data: UpdateNoteDto): Note | undefined {
     const note = this.notes.get(id);
-    
+
     if (!note) return undefined;
-    
+
     const updatedNote: Note = {
       ...note,
       ...data,
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
-    
+
     this.notes.set(id, updatedNote);
     return updatedNote;
   }
-  
+
   delete(id: string): Note | undefined {
     const note = this.notes.get(id);
-    
+
     if (!note) return undefined;
-    
+
     this.notes.delete(id);
     return note;
   }
-  
+
   count(): number {
     return this.notes.size;
   }
