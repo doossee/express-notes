@@ -4,13 +4,13 @@ A RESTful API built with Node.js, Express, and TypeScript for managing notes wit
 
 ## Features
 
-✅ **CRUD Operations** - Create, Read, Update, Delete notes
-✅ **TypeScript** - Type-safe codebase with strict mode
-✅ **Validation** - Request validation
-✅ **Error Handling** - Centralized async error handling
-✅ **Pagination** - Efficient data retrieval with page/limit
-✅ **Search** - Keyword search in title and content
-✅ **RESTful Design** - Follows REST conventions and best practices
+✅ **CRUD Operations** - Create, Read, Update, Delete notes  
+✅ **TypeScript** - Type-safe codebase with strict mode  
+✅ **Validation** - Request validation  
+✅ **Error Handling** - Centralized async error handling  
+✅ **Pagination** - Efficient data retrieval with page/limit  
+✅ **Search** - Keyword search in title and content  
+✅ **RESTful Design** - Follows REST conventions and best practices  
 
 ## Tech Stack
 
