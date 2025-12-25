@@ -32,7 +32,6 @@ export const errorHandler = (
     success: false,
     error: {
       message,
-      ...{ stack: err.stack },
     },
   });
 };

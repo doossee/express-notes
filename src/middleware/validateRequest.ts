@@ -12,7 +12,7 @@ export const validateCreateNote = (
     return next(new ApiError(400, "Title is required"));
   }
   if (typeof title !== "string") {
-    return next(new ApiError(400, "Type is required"));
+    return next(new ApiError(400, "Title is required"));
   }
   if (title.trim() === "") {
     return next(new ApiError(400, "Title cannot be empty"));
@@ -71,7 +71,7 @@ export const validateUpdateNote = (
     req.body.title = title.trim();
   }
 
-  if (content === undefined) {
+  if (content !== undefined) {
     if (typeof content !== "string") {
       return next(new ApiError(400, "Content must be a string"));
     }

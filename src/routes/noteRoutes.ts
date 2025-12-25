@@ -17,6 +17,8 @@ router.put(
   "/:id",
   validateNoteId,
   validateUpdateNote,
-  asyncHandler(noteController.retrieve),
+  asyncHandler(noteController.update),
 );
 router.delete("/:id", validateNoteId, asyncHandler(noteController.delete));
+
+export default router;
