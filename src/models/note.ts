@@ -60,8 +60,13 @@ class NoteModel {
     return updatedNote;
   }
   
-  delete(id: string): boolean {
-    return this.notes.delete(id)
+  delete(id: string): Note | undefined {
+    const note = this.notes.get(id);
+    
+    if (!note) return undefined;
+    
+    this.notes.delete(id);
+    return note;
   }
   
   count(): number {
